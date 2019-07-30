@@ -1,0 +1,38 @@
+server: 
+  port: 8080
+  servlet:
+    context-path: /spring-security-jwt-demo
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DerbyDialect
+  datasource:
+    url: jdbc:derby:spring-security-demodb;create=true      
+  jackson:
+    default-property-inclusion: NON_NULL
+    
+logging:
+    level:
+      root: INFO
+      org.springframework:
+        security: Info
+        web: DEBUG
+      org.hibernate: ERROR    
+    file: /home/logs/security-jwt.log
+    pattern:
+      file: '%d{yyyy-MM-dd HH\:mm\:ss} %-5p %c{1}\:%L - %m%n'
+      #console: '%d{yyyy-MMM-dd HH:mm:ss} %-5level [%thread] %logger{15} - %msg%n'
+      
+security:
+  jwt-token:
+      header-key: jwtToken
+      secret-key: moiworkflow
+      expire-length: 900000
+  allowed-origins: http://localhost:4200
+  allowed-headers: Authorization,Cache-Control,Content-Type
+  exposed-headers: jwtToken  
