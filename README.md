@@ -1,9 +1,11 @@
 # spring-security-jwt-demo
 Securing REST APIs using Json Web Token
-# Tehnologies used
+# Libraries used 
 * spring boot 
 * spring mvc
 * spring security
 * spring data jpa
+* hibernate
 * jsonwebtoken
 * derbydb
+* lombok
